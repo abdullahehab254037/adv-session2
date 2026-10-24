@@ -5,7 +5,59 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Action<Product> PrintAction;
+            List<Product> catalog = new()
+            {
+                new Product { Id = 1, Name = "Laptop", Category = "Electronics", Price = 1200, Stock = 10 },
+                new Product { Id = 2, Name = "Phone", Category = "Electronics", Price = 800, Stock = 25 },
+                new Product { Id = 3, Name = "T-Shirt", Category = "Clothing", Price = 30, Stock = 100 },
+                new Product { Id = 4, Name = "Jeans", Category = "Clothing", Price = 60, Stock = 50 },
+                new Product { Id = 5, Name = "Chocolate", Category = "Food", Price = 5, Stock = 200 },
+                new Product { Id = 6, Name = "Coffee Beans", Category = "Food", Price = 15, Stock = 80 },
+                new Product { Id = 7, Name = "C# Book", Category = "Books", Price = 45, Stock = 30 },
+                new Product { Id = 8, Name = "Novel", Category = "Books", Price = 20, Stock = 60 },
+                new Product { Id = 9, Name = "Headphones", Category = "Electronics", Price = 150, Stock = 40 },
+                new Product { Id = 10, Name = "Jacket", Category = "Clothing", Price = 120, Stock = 15 }
+            };
+            /*List<Product> result1 = new List<Product>();
+            List<Product> result2 = new List<Product>();
+            List<Product> result3 = new List<Product>();
+            List<Product> result4 = new List<Product>();
+            filterlist f1 = Product.Electronics;
+            result1=Product.filteroption(catalog, f1);
+             f1 = Product.prices;
+            result2 = Product.filteroption(catalog, f1);
+             f1 = Product.stock;
+            result3 = Product.filteroption(catalog, f1);
+             f1 = Product.clothing;
+            result4 = Product.filteroption(catalog, f1);
+            Console.WriteLine("---------electronics-----------");
+            for(int i=0;i<result1.Count;i++)
+            {
+                Console.WriteLine($"category:{result1[i].Category}");
+            }
+            Console.WriteLine("---------prices-----------");
+            for (int i = 0; i < result2.Count; i++)
+            {
+                Console.WriteLine($"price:{result2[i].Price}");
+            }
+            Console.WriteLine("----------stock------------");
+            for (int i = 0; i < result3.Count; i++)
+            {
+                Console.WriteLine($"stock:{result3[i].Stock}");
+            }
+            Console.WriteLine("----------clothing------------");
+            for (int i = 0; i < result4.Count; i++)
+            {
+                Console.WriteLine($"clothing:{result4[i].Category},,,,,price:{result4[i].Price}");
+            }*/
+            Console.WriteLine("--------short---------");
+            PrintAction = Product.printshort;
+
+            Product.printreport(catalog, PrintAction);
+            Console.WriteLine("--------details---------");
+            PrintAction = Product.printDetailed;
+            Product.printreport(catalog, PrintAction);
         }
     }
     public class Product
